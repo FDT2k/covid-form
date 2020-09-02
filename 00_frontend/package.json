@@ -1,11 +1,12 @@
 {
-  "name": "CovidQRForm",
+  "name": "covid-qr-kit",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.20.0",
     "file-saver": "^2.0.2",
     "node-sass": "^4.14.1",
     "openpgp": "^4.10.8",
@@ -21,6 +22,7 @@
     "uuid": "^8.3.0"
   },
   "scripts": {
+    "start:dev": "GKA_API=http://localhost:3001 react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

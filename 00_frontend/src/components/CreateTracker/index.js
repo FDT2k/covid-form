@@ -18,6 +18,8 @@ export default props => {
     
     const dispatch = useDispatch()
 
+    const [isLoading,setLoading] = useState(false);
+
 
     const currentKey = useSelector(state=> state.pgp.key)
    
@@ -26,7 +28,11 @@ export default props => {
         console.log('submit')
         const tracker_id = uuid();
         console.log(tracker_id)
-        dispatch(generate_key_pair([{name:e.identity,email:e.email}],e.passphrase))
+        dispatch(generate_key_pair([{name:e.identity,email:e.email}],e.passphrase)).then(
+            res=> {
+
+            }
+        )
     }
 
     const exportKey = _=> {

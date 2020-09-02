@@ -1,7 +1,8 @@
 import express from 'express';
 import { bootstrap } from '@geekagency/microservice-common-libs';
 
-import RouteImport from 'route-food';
+import RouteAdmin from 'route-covid-admin';
+import RouteUser from 'route-covid-user';
 import bodyParser from 'body-parser';
 
 
@@ -15,7 +16,10 @@ bootstrap.natsFactory(nats => {
         console.log(req.url,req.method)
         next();
     });
-    app.use(RouteImport(nats))
+
+
+    app.use('/admin',RouteAdmin(nats))
+    app.use('/event',RouteUser(nats))
 
 
 
