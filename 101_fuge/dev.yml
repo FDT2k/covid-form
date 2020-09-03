@@ -1,0 +1,39 @@
+fuge_global:
+  tail: true
+  monitor: false
+  monitor_excludes:
+    - '**/node_modules/**'
+    - '**/.git/**'
+    - '*.log'
+
+
+
+api:
+  type: process
+  path: ../01_api
+#  run: 'node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host 0.0.0.0 --progress --colors --env.dev'
+  run: 'yarn run start:dev'
+  monitor: false
+
+
+
+  
+tracker:
+  type: process
+  path: ../08_noctisms-covid-tracker
+#  run: 'node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host 0.0.0.0 --progress --colors --env.dev'
+  run: 'yarn run start:dev'
+  monitor: false
+
+
+
+
+
+store:
+  type: process
+  path: ../09_noctisms-covid-store
+#  run: 'node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host 0.0.0.0 --progress --colors --env.dev'
+  run: 'yarn run start:dev'
+  monitor: false
+
+

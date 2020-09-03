@@ -1,0 +1,34 @@
+yarn run v1.22.5
+warning package.json: No license field
+warning ../../../../package.json: No license field
+$ MONGO_DATABASE=hug COLLECTION=covid NATS_SERVERS=127.0.0.1:42222 nodemon --watch node_modules/@geekagency/microservice-common-libs/dist --watch src --exec babel-node src/index.js
+[33m[nodemon] 2.0.2[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching dir(s): node_modules/@geekagency/microservice-common-libs/dist/**/* src/**/*[39m
+[33m[nodemon] watching extensions: js,mjs,json[39m
+[32m[nodemon] starting `babel-node src/index.js`[39m
+ready hug covid
+ready
+{ 'covid-store.upsert': [Function],
+  'covid-store.search': [Function],
+  'covid-store.get': [Function],
+  'covid-store.delete': [Function],
+  'covid-store.update': [Function],
+  'covid-store.list': [Function],
+  'covid-store.insert': [Function] }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `babel-node src/index.js`[39m
+ready hug covid
+ready
+{ 'covid-store.upsert': [Function],
+  'covid-store.search': [Function],
+  'covid-store.get': [Function],
+  'covid-store.delete': [Function],
+  'covid-store.update': [Function],
+  'covid-store.list': [Function],
+  'covid-store.insert': [Function] }
+inserting
+inserting
+inserting
+inserting

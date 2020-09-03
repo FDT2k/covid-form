@@ -1,0 +1,12 @@
+{
+  "presets":
+  ["@babel/preset-env"],
+  "plugins": [
+    ["inline-json-import", {}],
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-export-default-from",
+    ["module-resolver", {
+      "root": ["./src"]
+    }]
+  ]
+}
