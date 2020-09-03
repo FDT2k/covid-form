@@ -2,8 +2,7 @@ import React from 'react'
 
 
 export default props => {
-    const {validator,label, ...rest} = props;
-    console.log(props)
+    const {validator, label, ...rest} = props;
     return (
         <div>
             <label>{label}</label>

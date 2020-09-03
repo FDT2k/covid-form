@@ -6,12 +6,14 @@ import {makeReducerPersist,persistStore} from './utils/persist'
 
 import Configuration from 'Redux/Configuration';
 import Keys from 'Redux/Keys';
+import TrackerKit from 'Redux/TrackerKit';
 
 
 const reducers =combineReducers({
   //configuration: makeReducerPersist('config',Configuration),
   //pgp: makeReducerPersist('pgp',Keys),
-  configuration: Configuration,
+  //configuration: Configuration,$
+  ecov: TrackerKit,
   pgp: Keys,
 })
 

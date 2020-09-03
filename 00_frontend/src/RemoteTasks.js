@@ -9,4 +9,4 @@ const PToTask = promise => Task (
    }
  )
 
-export const createTracker = (tracker_id,pubKey) => PToTask( _=> axios.post(`${process.env.GKA_API}/admin/${tracker_id}`,{pubKey}) )
+export const createTracker = (tracker_id,pub_key) => _=>  axios.put(`${process.env.REACT_APP_ECOV_API}/admin/${tracker_id}`,{pub_key}) 

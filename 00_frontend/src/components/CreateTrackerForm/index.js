@@ -3,9 +3,9 @@ import { useForm } from '@geekagency/use-fields-value'
 import { isEmail, isEmptyString } from '@geekagency/composite-js/Validators'
 
 import InputField from 'components/InputField'
-
-
-const initialFormValues = { identity: 'fdt', email: 'fabien@ditore.ch', passphrase: 'test', confirm: 'test' }
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+const initialFormValues = { identity: 'fdt', email: 'fabien@ditore.ch',start_date:new Date(), passphrase: 'test', confirm: 'test' }
 
 
 export default props => {
@@ -29,10 +29,9 @@ export default props => {
 
 
 
-    const { fields, inputProps, formProps, validator, handleInput, formValid, formTouched, handleSubmit, handleEvents } = useForm(initialFormValues, _handleSubmit, _handleValidation, 'name', true)
+    const { fields, inputProps,assignValues, formProps, validator, handleInput, formValid, formTouched, handleSubmit, handleEvents } = useForm(initialFormValues, _handleSubmit, _handleValidation, 'name', true)
 
-
-
+    console.log(fields)
     return (
 
         <form {...formProps} method="post">
@@ -51,12 +50,20 @@ export default props => {
                 {...inputProps('passphrase')}
                 validator={validator.passphrase}
                 placeholder="enter a strong password" />
-           <InputField
+            <InputField
                 type="password"
                 {...inputProps('confirm')}
                 validator={validator.confirm}
                 placeholder="enter your password confirmation" />
-        
+            <DatePicker
+                selected={fields.start_date}
+                name="start_date"
+                dateFormat="dd.MM.yyyy"
+                onChange={date => {
+                    console.log(date);
+                    assignValues({start_date:date})
+                    }}
+            />
             <button>Create Tracker</button>
         </form>
 
