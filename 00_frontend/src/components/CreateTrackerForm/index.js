@@ -5,7 +5,7 @@ import { isEmail, isEmptyString } from '@geekagency/composite-js/Validators'
 import InputField from 'components/InputField'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-const initialFormValues = { identity: 'fdt', email: 'fabien@ditore.ch',start_date:new Date(), passphrase: 'test', confirm: 'test' }
+const initialFormValues = { identity: 'fdt', email: 'fabien@ditore.ch',event_date:new Date(), passphrase: 'test', confirm: 'test' }
 
 
 export default props => {
@@ -56,12 +56,12 @@ export default props => {
                 validator={validator.confirm}
                 placeholder="enter your password confirmation" />
             <DatePicker
-                selected={fields.start_date}
-                name="start_date"
+                selected={fields.event_date}
+                name="event_date"
                 dateFormat="dd.MM.yyyy"
                 onChange={date => {
                     console.log(date);
-                    assignValues({start_date:date})
+                    assignValues({event_date:date})
                     }}
             />
             <button>Create Tracker</button>

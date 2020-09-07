@@ -13,31 +13,45 @@ export const REMOTE_TRACKER_CREATION_BEGAN = 'REMOTE_TRACKER_CREATION_BEGAN'
 export const REMOTE_TRACKER_CREATION_SUCCESS = 'REMOTE_TRACKER_CREATION_SUCCESS'
 export const REMOTE_TRACKER_CREATION_FAILURE = 'REMOTE_TRACKER_CREATION_FAILURE'
 
+export const KIT_GENERATION_STARTED = 'KIT_GENERATION_STARTED'
+export const KIT_GENERATION_SUCCESS = 'KIT_GENERATION_SUCCESS'
+export const KIT_GENERATION_FAILURE = 'KIT_GENERATION_FAILURE'
 
-export const create_tracker_id = _ => {
-  return {
-    type: GENERATE_TRACKER_ID,
-    payload: uuid()
-  }
+export const STATUS = {
+  IDLE: 0,
+  WORKING: 1,
+  COMPLETE: 2,
+  ERROR: 4
 }
 
-export const create_tracker_api = (tracker_id, pub_key) => {
+export const create_tracker_id = _ => makeActionCreator(GENERATE_TRACKER_ID, uuid());
+
+export const create_tracker_api = (tracker_id, pub_key,event_date) => {
   return async (dispatch, getState) => {
     dispatch(makeActionCreator(REMOTE_TRACKER_CREATION_BEGAN, '', null));
     return dispatch(PromiseThunkDispatcher(
       makeActionCreator(REMOTE_TRACKER_CREATION_FAILURE),
       makeActionCreator(REMOTE_TRACKER_CREATION_SUCCESS),
-      createTracker(tracker_id, pub_key)
+      createTracker(tracker_id, pub_key,event_date)
     ))
 
   }
 }
-export const create_kit = (identities, passphrase) => (dispatch, getState) => {
+export const create_kit = (identities, passphrase,event_date) => (dispatch, getState) => {
+  dispatch(makeActionCreator(KIT_GENERATION_STARTED, ''));
+
   const tracker_id = dispatch(create_tracker_id());
 
   return dispatch(generate_key_pair(identities, passphrase)).then(key => {
-    console.log(getState().pgp.key)
-    return dispatch(create_tracker_api(tracker_id.payload, key.payload.publicKeyArmored))
 
-  })
+
+    return dispatch(create_tracker_api(tracker_id.payload, key.payload.publicKeyArmored,event_date)).then(
+      _ => dispatch(makeActionCreator(KIT_GENERATION_SUCCESS, ''))
+    ).catch(
+      _ => dispatch(makeActionCreator(KIT_GENERATION_FAILURE, ''))
+    )
+
+  }).catch(
+    _ => dispatch(makeActionCreator(KIT_GENERATION_FAILURE, ''))
+  )
 }

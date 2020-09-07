@@ -1,17 +1,17 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import { Page, Image, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 
 import hugLogo from '../../hug_logo.png'
 // Create styles
 const styles = StyleSheet.create({
     page: {
-        flexDirection: 'row',
-        backgroundColor: '#FFFFFF'
+      
     },
     section: {
-        margin: 10,
-        padding: 10,
-        flexGrow: 1
+        flexDirection: 'column',
+        justifyContent:'center',
+        alignContent:'center',
+        alignSelf:'center',
     }
 });
 
@@ -32,23 +32,26 @@ export default props => {
     const svgStr = serializer.serializeToString(svg);
     const img_src = 'data:image/svg+xml;base64,' + window.btoa(svgStr);
 */
-console.log(props,hugLogo)
+    console.log(props, hugLogo)
     return (
         <>
+            <Document>
+                <Page debug={true} size="A4" style={styles.page}>
+                   
+               {/*     <View debug={true} style={styles.section}>
+                        <Image debug={true} allowDangerousPaths={true} source={{ uri: 'hug_logo.png', method: 'GET' }} style={{ width: 140, height: 140 }} />
+    </View>*/}
+                        <View debug={true} style={{textAlign: 'center'}}>
+                              <Text  debug={true}>Enregistrement Covid</Text>
+                        </View>
 
-        <Document>
-            <Page size="A4" style={styles.page}>
-                <View style={styles.section}>
-                    <Text>Section #1</Text>
-                </View>
-                <View style={styles.section}>
-                    <Text>Section #2</Text>
-                    {props.qr !== null && props.qr !== undefined && <Image source={{uri:props.qr}} style={{width:140,height:140}}/>}
-                    <Image allowDangerousPaths={true} source={{ uri : 'hug_logo.png', method:'GET'}}  style={{width:140,height:140}}/>
+                        <View debug={true} style={styles.section}>
+                    
+                        {props.qr !== null && props.qr !== undefined && <Image source={{ uri: props.qr }} style={{ width: 140, height: 140 }} />}
 
-                </View>
-            </Page>
-        </Document>
+                    </View>
+                </Page>
+            </Document>
         </>
     )
 }

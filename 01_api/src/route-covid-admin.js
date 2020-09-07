@@ -22,7 +22,7 @@ export default (nats) => {
       //publish the key. and create the form
       nats.call('covid-tracker.create', {
         tracker_id: req.params.tracker_id,
-        pub_key:req.body.pub_key
+        ...req.body
       },{$timeout:2000})
       .then(reply => {
         res.send(reply.clone())

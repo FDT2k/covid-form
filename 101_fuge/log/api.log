@@ -8,30 +8,8 @@ $ PORT=3021 NATS_SERVERS=127.0.0.1:42222 nodemon --watch node_modules/@geekagenc
 [33m[nodemon] watching extensions: js,mjs,json[39m
 [32m[nodemon] starting `babel-node src/index.js`[39m
 started
-/admin/49d2de17-3b1b-4260-abc6-66ddd42f3450 PUT
-/admin/49d2de17-3b1b-4260-abc6-66ddd42f345f PUT
-/admin/49d2de17-3b1b-4260-abc6-66ddd42f345b PUT
-/admin/49d2de17-3b1b-4260-abc6-66ddd42f345b PUT
-/admin/49d2de17-3b1b-4260-abc6-66ddd42f345b PUT
-/admin/49d2de17-3b1b-4260-abc6-66ddd42f345b PUT
-/admin/49d2de17-3b1b-4260-abc6-66ddd42f345b PUT
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `babel-node src/index.js`[39m
 started
-/admin/c49c16e6-330a-49e6-b534-7ed77121f36e OPTIONS
-/admin/5de8c39e-505c-450f-aae5-6b47073f71f5 OPTIONS
-/admin/21a24365-a1e9-42c0-8263-a11b95701015 OPTIONS
-/admin/9d303254-09fe-41f0-b127-2ce9401d4089 OPTIONS
-/admin/71701cac-f6ef-4efb-9e8f-1e7fb8ec0963 OPTIONS
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `babel-node src/index.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `babel-node src/index.js`[39m
-started
-/admin/5ee33c27-896f-47c6-9d44-3d21ec9a4633 PUT
-/admin/8a16924e-a84f-4ead-8a6a-e71a0b3e287f PUT
-/admin/25fb97d8-e039-4ec9-97d1-05d9b903685c PUT
-/admin/57cc1a20-8ff5-4581-acca-a22401b8646e PUT
-/admin/0e478c52-0189-4ad2-a750-d9ac099ed9d5 PUT
-/admin/d39a6920-dcdc-4838-aa35-3e5d6992139c PUT
+/event/1d93fab5-8d8c-4c66-882c-da43a0cf0bda PUT

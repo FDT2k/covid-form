@@ -1,25 +1,47 @@
 
-import {GENERATE_TRACKER_ID } from 'Redux/TrackerKit/actions'
+import {STATUS,KIT_GENERATION_STARTED,KIT_GENERATION_SUCCESS,GENERATE_TRACKER_ID,REMOTE_TRACKER_CREATION_BEGAN,REMOTE_TRACKER_CREATION_SUCCESS,REMOTE_TRACKER_CREATION_FAILURE } from 'Redux/TrackerKit/actions'
 import { combineReducers } from 'redux'
 
-
-export const STATUS = {
-  IDLE:0,
-  WORKING:1,
-  COMPLETE:2,
-  ERROR:4
-}
 
 const initialState =
 {
   status: STATUS.IDLE,
-  key_generated:false,
-  tracker_created:false,
+  key_generated:STATUS.IDLE,
+  tracker_created:STATUS.IDLE,
 }
  
 const KitStatusReducer  = (state = initialState, action) => {
   switch (action.type) {
-   
+    case KIT_GENERATION_STARTED:
+      return {
+        ...state,
+        status:STATUS.WORKING
+      }
+    break;
+    case KIT_GENERATION_SUCCESS:
+      return {
+        ...state,
+        status:STATUS.COMPLETE
+      }
+    break;
+    case REMOTE_TRACKER_CREATION_BEGAN:
+      return {
+        ...state,
+        tracker_created:STATUS.WORKING,
+      }
+    break; 
+    case REMOTE_TRACKER_CREATION_SUCCESS:
+      return {
+        ...state,
+        tracker_created:STATUS.COMPLETE,
+      }
+    break; 
+    case REMOTE_TRACKER_CREATION_FAILURE:
+      return {
+        ...state,
+        tracker_created:STATUS.ERROR,
+      }
+    break; 
   }
 
   return state

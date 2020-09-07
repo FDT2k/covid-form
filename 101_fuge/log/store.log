@@ -19,6 +19,8 @@ ready
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `babel-node src/index.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `babel-node src/index.js`[39m
 ready hug covid
 ready
 { 'covid-store.upsert': [Function],
@@ -28,7 +30,6 @@ ready
   'covid-store.update': [Function],
   'covid-store.list': [Function],
   'covid-store.insert': [Function] }
-inserting
-inserting
-inserting
-inserting
+payload { tracker_id: '1d93fab5-8d8c-4c66-882c-da43a0cf0bda' } { '$push':
+   { registrations:
+      '-----BEGIN PGP MESSAGE-----\r\nVersion: OpenPGP.js v4.10.8\r\nComment: https://openpgpjs.org\r\n\r\nwV4DIMl3zNcNR74SAQdAP6ZfHI1/RKd0FIid65/7Q87CZZElAhauf+7qaVsi\r\n4yYwCem3Xg0BNMuA/I1FJseb53pDBGNyduPmUgY25N9uSxEiS28OWDapmn3+\r\nWSZ2KVkh0pYBBtzcgsBBjJ5U+/+YddNKjWsLUXV2Lczwth9p29VRm4KzhJKj\r\npZoAeolM+pnrDus/UkZACemjHbnnjal2FxGx/CeiMQxArWfia12ei3CwcHlA\r\nZbmFjIzxkyB87MhaiWNlgVAFrX+QNQ07ucPVbvKwUfqDhi6xMvOyC5MfK7aV\r\ncLeUMkueu92rTwyz0sK+t6T6lpgbwgc=\r\n=9Ig2\r\n-----END PGP MESSAGE-----\r\n' } }
