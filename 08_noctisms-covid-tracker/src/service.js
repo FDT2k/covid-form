@@ -62,7 +62,7 @@ export const create_tracker = broker=> context => {
 
 
 
-const fns = {
+export const fns = {
 
     [`${TOPIC}.get`]:get_tracker,
     [`${TOPIC}.create`]:create_tracker,
